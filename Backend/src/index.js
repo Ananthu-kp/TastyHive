@@ -7,6 +7,7 @@ connectDB()
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import userRoute from './routes/userRoutes.js'
+import adminRoute from './routes/adminRoutes.js'
 
 
 app.use(express.json());
@@ -18,7 +19,7 @@ app.use(cors({
 }));
 
 app.use('/', userRoute);
-// app.use('/admin', adminRoutes);
+app.use('/admin', adminRoute);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server is Running on: http://localhost:${port}/`))
