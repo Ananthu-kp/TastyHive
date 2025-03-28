@@ -1,5 +1,5 @@
 import { Eye, EyeOff, Loader } from 'lucide-react';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -11,6 +11,13 @@ const LoginUser = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
+
+    useEffect(() => {
+        const token = localStorage.getItem('token')
+        if (token) {
+            navigate('/')
+        }
+    }, [navigate])
 
     // Formik setup
     const formik = useFormik({
@@ -26,6 +33,7 @@ const LoginUser = () => {
             setLoading(true);
             try {
                 const response = await axiosInstance.post('/login', values, { withCredentials: true })
+                localStorage.setItem('token', response.data.token);
                 toast.success('Login Successful!');
 
                 setTimeout(() => {

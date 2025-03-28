@@ -1,11 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import Navbar from './Navbar';
 
 const HomePage = () => {
-  return (
-    <div>
-      ith home page ahnee
-    </div>
-  )
-}
+    // useEffect(() => {
+    //     window.history.pushState(null, '', window.location.href);
+    //     window.onpopstate = () => {
+    //         window.history.pushState(null, '', window.location.href);
+    //     };
+    // }, []);
 
-export default HomePage
+    return (
+        <div>
+          <Navbar />
+            Welcome to the Home Page!
+        </div>
+    );
+};
+
+export default HomePage;
