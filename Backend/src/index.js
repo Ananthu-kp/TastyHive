@@ -14,10 +14,10 @@ import menuRoute from './routes/menuRoutes.js'
 app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
-    origin: "https://frontendv2-mu.vercel.app/" || '*',// Ensure CLIENT_URL is defined in .env
+    origin: "https://frontendv2-mu.vercel.app" || '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true, // If using cookies or authentication
+    credentials: true, 
   };
   app.use(cors(corsOptions));
   
@@ -26,5 +26,10 @@ app.use('/', userRoute);
 app.use('/admin', adminRoute);
 app.use("/api/menu", menuRoute); 
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server is Running on: http://localhost:${port}/`))
+if (process.env.NODE_ENV !== 'production') {
+    const port = process.env.PORT || 3000;
+    app.listen(port, () => console.log(`Server is Running on: http://localhost:${port}/`));
+}
+
+
+export default app
