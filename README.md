@@ -73,11 +73,13 @@ Create a .env file inside the backend directory and configure the following:
     npm run dev
 
 <br>
-4. Setup Frontend
+## Setup Frontend
+
     cd Frontend
     npm install
 
 Run the frontend application:
+
     npm run dev
 
 ## Accessing the Application
@@ -86,6 +88,7 @@ Frontend URL: http://localhost:5173
 
 Backend API: http://localhost:3000
 
-Admin Credentials (For Testing)
+Admin Credentials (you can set in you .env file for an initial admin)
 
-After setting up, you can manually promote a user to admin using MongoDB or via API request.
+ADMIN_EMAIL=your_email
+ADMIN_PASS=your_password
