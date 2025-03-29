@@ -38,7 +38,7 @@ const LoginUser = () => {
 
                 setTimeout(() => {
                     navigate('/')
-                }, 1000);
+                }, 500);
             } catch (error) {
                 toast.error(error.response?.data?.message || "Login failed. Please try again.");
             } finally {

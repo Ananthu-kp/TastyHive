@@ -9,6 +9,7 @@ import HomePage from './components/users/HomePage'
 import { Toaster } from 'sonner';
 import ProtectedRoute from './components/users/ProtectedRoute'
 import ProtectedAdminRoute from './components/admin/ProtectedAdminRoute'
+import Profile from './components/users/Profile'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/signup' element={<SignupUser />} />
           <Route path='/login' element={<LoginUser />} />
           <Route path='/' element={<ProtectedRoute> <HomePage /></ProtectedRoute>} />
+          <Route path='/profile' element={<ProtectedRoute> <Profile /> </ProtectedRoute>} />
 
           <Route path='/admin/login' element={<LoginPage />} />
           <Route path='/admin' element={<ProtectedAdminRoute> <MenuEditor /></ProtectedAdminRoute>} />
