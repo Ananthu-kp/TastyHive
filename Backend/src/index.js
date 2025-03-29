@@ -13,11 +13,12 @@ import menuRoute from './routes/menuRoutes.js'
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({
-    origin: "*",
-    methods:    'GET, POST, PUT, DELETE, PATCH',
-    credentials: true,
-}));
+const corsOptions = {
+    origin: '*',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  };
+  app.use(cors(corsOptions));
 
 app.use('/', userRoute);
 app.use('/admin', adminRoute);
