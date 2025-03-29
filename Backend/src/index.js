@@ -14,11 +14,13 @@ import menuRoute from './routes/menuRoutes.js'
 app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
-    origin: '*',
+    origin: "https://frontendv2-mu.vercel.app/" || '*',// Ensure CLIENT_URL is defined in .env
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true, // If using cookies or authentication
   };
   app.use(cors(corsOptions));
+  
 
 app.use('/', userRoute);
 app.use('/admin', adminRoute);
