@@ -14,12 +14,16 @@ import menuRoute from './routes/menuRoutes.js'
 app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
-    origin: "https://frontendv2-mu.vercel.app" || '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    origin: "https://frontendv2-mu.vercel.app", 
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true, 
-  };
-  app.use(cors(corsOptions));
+};
+app.use(cors(corsOptions));
+
+// Explicitly handle preflight OPTIONS request
+app.options('*', cors(corsOptions)); 
+
   
 
 app.use('/', userRoute);
