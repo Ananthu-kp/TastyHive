@@ -16,25 +16,29 @@ connectDB();
 app.use(express.json());
 app.use(cookieParser());
 
-// Proper CORS configuration
-const corsOptions = {
-    origin: "https://frontendv2-mu.vercel.app", 
+const allowedOrigins = [
+    "https://tasty-hive.vercel.app",
+    "https://frontendv2-mu.vercel.app",
+    "http://localhost:5173" 
+  ];
+  
+  const corsOptions = {
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-};
-
-// Apply CORS middleware
-app.use(cors(corsOptions));
-
-// Handle preflight OPTIONS requests
-app.options('*', (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://frontendv2-mu.vercel.app");
-    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
-    res.setHeader("Access-Control-Allow-Credentials", "true");
-    res.sendStatus(200);
-});
+    credentials: true
+  };
+  
+  app.use(cors(corsOptions));
+  
+  // Simplify your OPTIONS handler
+  app.options('*', cors(corsOptions));
 
 // Define API routes
 app.use('/', userRoute);
