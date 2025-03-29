@@ -14,7 +14,7 @@ import menuRoute from './routes/menuRoutes.js'
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: "https://tasty-hive.vercel.app/",
+    origin: "*",
     methods:    'GET, POST, PUT, DELETE, PATCH',
     credentials: true,
 }));
