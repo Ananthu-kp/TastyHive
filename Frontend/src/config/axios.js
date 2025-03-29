@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const axiosInstance = axios.create({
     baseURL: 'https://tasty-hive-9nqd.vercel.app/',
-    withCredentials: true,
+    withCredentials: true, 
 });
 
 // Request interceptor to add auth token
