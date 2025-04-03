@@ -91,4 +91,5 @@ Backend API: http://localhost:3000
 Admin Credentials (you can set in you .env file for an initial admin)
 
 ADMIN_EMAIL=your_email
+
 ADMIN_PASS=your_password
