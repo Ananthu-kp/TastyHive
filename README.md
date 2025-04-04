@@ -1,6 +1,6 @@
 ## Tasty Hive
 
-Tasty Hive is a menu management system where admins can add, edit, and manage a menu that is publicly viewable but only editable by authorized administrators. Users can sign up, log in, and edit their profiles, while admins have additional privileges such as promoting users to admin roles.
+Tasty Hive is a menu management system where admins can add, edit, and manage a menu that is publicly viewable but only editable by authorized administrators. Users can sign up, log in, and edit their profiles, while admins have additional privileges such as promoting users to admin role.
 
 ## Features
 
@@ -81,6 +81,7 @@ Create a .env file inside the backend directory and configure the following:
 Run the frontend application:
 
     npm run dev
+
 
 ## Accessing the Application
 
